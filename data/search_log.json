@@ -1,0 +1,26 @@
+[
+  {
+    "ts": "2026-04-22 10:51",
+    "mode": "text",
+    "neighborhood": "Westwood",
+    "found": 19,
+    "new": 16,
+    "already_in_db": 3
+  },
+  {
+    "ts": "2026-04-22 13:01",
+    "mode": "text",
+    "neighborhood": "Culver City",
+    "found": 18,
+    "new": 18,
+    "already_in_db": 0
+  },
+  {
+    "ts": "2026-04-23 16:46",
+    "mode": "grid",
+    "neighborhood": "Westwood",
+    "found": 31,
+    "new": 26,
+    "already_in_db": 5
+  }
+]

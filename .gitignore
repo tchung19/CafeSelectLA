@@ -1,0 +1,40 @@
+# Environment
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+env/
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+
+# Data — fetched cafe data stays local (large files, not for version control)
+data/cafes/
+data/vision_results/
+data/westwood_grid_new.json
+
+# Keep merged DB and review files, ignore individual per-cafe records
+data/db_records/*.json
+!data/db_records/cafes.json
+
+# Node / Next.js
+node_modules/
+.next/
+out/
+.vercel/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
