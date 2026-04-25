@@ -22,6 +22,8 @@ The underlying product is a **structured, LLM-enriched database** of LA cafes, w
 
 ## 2. Problem Statement
 
+Yelp tells you a cafe's rating. It doesn't tell you if it has outlets, is quiet enough to take a call, or is still open in 2 hours when you need to finish your final. You search for a cafe nearby, get there, and realize it closes in an hour. Or there's nowhere to plug in your laptop. Or it's too loud to think.
+
 Existing tools fail at intent-based cafe discovery:
 
 - **Google Maps** filters by hours and a handful of attributes (wifi, dine-in) but cannot answer "has outlets", "good for studying", or "serves great avocado toast".

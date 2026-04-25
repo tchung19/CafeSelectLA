@@ -1,6 +1,8 @@
 # CafeSelect
 
-Intent-based cafe discovery for Los Angeles. Instead of star ratings and generic tags, CafeSelect answers questions like *"quiet spot to work near Westwood with outlets"* or *"aesthetic date cafe in Culver City"*.
+Yelp tells you a cafe's rating. It doesn't tell you if it has outlets, is quiet enough to take a call, or is still open in 2 hours when you need to finish your final.
+
+CafeSelect does. Describe what you need: *"quiet spot in Westwood with outlets open till 9"* or *"aesthetic date cafe in Culver City"*, and get cafes that actually match.
 
 **Status:** Data pipeline and search API complete, 53 cafes in Supabase. Telegram bot in progress.
 
