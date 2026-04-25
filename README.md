@@ -2,7 +2,7 @@
 
 Intent-based cafe discovery for Los Angeles. Instead of star ratings and generic tags, CafeSelect answers questions like *"quiet spot to work near Westwood with outlets"* or *"aesthetic date cafe in Culver City"*.
 
-**Status:** Data pipeline complete, 56 cafes in Supabase. Telegram bot in progress.
+**Status:** Data pipeline and search API complete, 53 cafes in Supabase. Telegram bot in progress.
 
 ---
 
@@ -36,9 +36,13 @@ pipeline/
   regions.py            Neighborhood → region mappings for West LA
   config.py             .env loading and key validation
 
-api/            REST API (coming soon)
-bot/            Telegram bot — MVP interface (coming soon)
-web/            Web frontend (coming soon)
+api/
+  main.py             FastAPI app — POST /search endpoint
+  query_parser.py     Claude Haiku extracts structured filters from user query
+  search.py           Supabase query builder with real-time hours filtering
+
+bot/            Telegram bot (in progress)
+web/            Web frontend (planned)
 
 data/
   db_records/cafes.json   Merged records for all cafes
@@ -53,8 +57,8 @@ data/
 **Requirements:** Python 3.11+, API keys for Google Places, Anthropic, and OpenAI.
 
 ```bash
-git clone https://github.com/your-username/cafeselect
-cd cafeselect
+git clone https://github.com/tchung19/CafeSelectLA
+cd CafeSelectLA
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
 cp .env.example .env   # fill in your API keys
@@ -88,6 +92,26 @@ python pipeline/run_llm_extractor.py --data-dir data/cafes/
 # Build DB records only
 python pipeline/db_builder.py --data-dir data/cafes/ --out-dir data/db_records/
 ```
+
+---
+
+## Search API
+
+```bash
+uvicorn api.main:app --reload --port 8000
+```
+
+`POST /search` — natural language query → structured Supabase filters → ranked cafe results.
+
+```bash
+curl -X POST http://localhost:8000/search \
+  -H "Content-Type: application/json" \
+  -d '{"query": "quiet cafe in Westwood to work late"}'
+```
+
+Interactive docs at `http://localhost:8000/docs`.
+
+The query parser uses Claude Haiku to extract filters (neighborhood, noise level, hours, etc.) from plain English. Hours filtering is computed dynamically against today's actual opening hours.
 
 ---
 
