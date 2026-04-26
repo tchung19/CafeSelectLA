@@ -33,13 +33,21 @@ Available filter fields (only include fields clearly implied by the query):
 - dogs_allowed: true — only set if user mentions dog/pet
 - solo_friendly: true — only set if user mentions solo/alone
 - group_friendly: true — only set if user mentions group/friends/meeting
+- has_food_menu: true — only set if user mentions food/eating/meal/sandwich/lunch/snack
+- has_avocado_toast: true — only set if user mentions avocado toast
+- has_pastries: true — only set if user mentions pastries/croissant/baked goods
+- serves_breakfast: true — only set if user mentions breakfast
+- serves_brunch: true — only set if user mentions brunch
+- serves_lunch: true — only set if user mentions lunch/sandwich/midday
+- serves_dinner: true — only set if user mentions dinner
+- serves_dessert: true — only set if user mentions dessert/cake/sweets
 
 Also extract:
-- limit: number of results requested (default 5, max 10)
+- limit: number of results requested (default 6, max 10)
 - sort_by: "rating" (default) or "review_count"
 
 Return ONLY valid JSON, no explanation. Example:
-{"neighborhood": "Westwood", "study_friendly": true, "noise_level": "quiet", "limit": 5}
+{"neighborhood": "Westwood", "study_friendly": true, "noise_level": "quiet", "limit": 6}
 """
 
 

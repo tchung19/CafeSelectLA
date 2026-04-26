@@ -38,6 +38,9 @@ BOOL_FIELDS = {
     "good_for_dates", "instagrammable", "has_matcha",
     "has_specialty_coffee", "has_vegan_options", "has_patio",
     "dogs_allowed", "solo_friendly", "group_friendly",
+    "has_food_menu", "has_avocado_toast", "has_pastries",
+    "serves_breakfast", "serves_brunch", "serves_lunch",
+    "serves_dinner", "serves_dessert",
 }
 
 EQ_FIELDS = {"neighborhood", "region", "noise_level"}
