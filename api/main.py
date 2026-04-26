@@ -10,6 +10,7 @@ Docs at: http://localhost:8000/docs
 from __future__ import annotations
 
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
 from api.query_parser import parse_query
@@ -19,6 +20,13 @@ app = FastAPI(
     title="CafeSelect API",
     description="Intent-based cafe discovery for Los Angeles.",
     version="0.1.0",
+)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 
@@ -36,6 +44,20 @@ class SearchResponse(BaseModel):
 @app.get("/health")
 def health():
     return {"status": "ok"}
+
+
+@app.get("/neighborhoods")
+def neighborhoods():
+    from api.search import _supabase
+    rows = _supabase.table("cafes").select("neighborhood").execute().data or []
+    seen = set()
+    result = []
+    for r in rows:
+        n = r.get("neighborhood")
+        if n and n not in seen:
+            seen.add(n)
+            result.append(n)
+    return {"neighborhoods": sorted(result)}
 
 
 @app.post("/search", response_model=SearchResponse)
