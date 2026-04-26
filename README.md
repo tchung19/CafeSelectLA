@@ -4,7 +4,9 @@ Yelp tells you a cafe's rating. It doesn't tell you if it has outlets, is quiet 
 
 CafeSelect does. Describe what you need: *"quiet spot in Westwood with outlets open till 9"* or *"aesthetic date cafe in Culver City"*, and get cafes that actually match.
 
-**Status:** Data pipeline and search API complete, 53 cafes in Supabase. Telegram bot in progress.
+**Live at [cafe-select-la.vercel.app](https://cafe-select-la.vercel.app)**
+
+**Status:** Live — web frontend on Vercel, search API on Railway, ~56 cafes across West LA neighborhoods in Supabase.
 
 ---
 
@@ -44,7 +46,7 @@ api/
   search.py           Supabase query builder with real-time hours filtering
 
 bot/            Telegram bot (in progress)
-web/            Web frontend (planned)
+web/            Next.js frontend (live at cafe-select-la.vercel.app)
 
 data/
   db_records/cafes.json   Merged records for all cafes
