@@ -422,10 +422,6 @@ def run(data_dir: str, out_dir: str, cafe_filter: str | None = None) -> None:
         rec = build_record(details, llm_wrapper, vision_wrapper)
         records.append(rec)
 
-        per_path = output / f"{folder}.json"
-        with open(per_path, "w") as f:
-            json.dump(rec, f, indent=2, ensure_ascii=False)
-
         comp = completeness(rec)
         comp_str = "  ".join(f"{k}={v}" for k, v in comp.items())
         print(f"  [{folder}] {rec['name']}")
@@ -448,7 +444,7 @@ def run(data_dir: str, out_dir: str, cafe_filter: str | None = None) -> None:
             pct = 100 * filled / total if total else 0
             print(f"    {section:<25} {filled}/{total}  ({pct:.0f}%)")
 
-    print(f"\n✅ {len(records)} records → {out_dir}/cafes.json + per-cafe JSON\n")
+    print(f"\n✅ {len(records)} records → {out_dir}/cafes.json\n")
 
 
 def main() -> None:

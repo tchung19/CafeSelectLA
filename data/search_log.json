@@ -22,5 +22,13 @@
     "found": 31,
     "new": 26,
     "already_in_db": 5
+  },
+  {
+    "ts": "2026-04-26 01:24",
+    "mode": "grid",
+    "neighborhood": "Brentwood",
+    "found": 7,
+    "new": 6,
+    "already_in_db": 1
   }
 ]

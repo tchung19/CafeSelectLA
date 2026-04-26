@@ -53,14 +53,16 @@ def health():
 def neighborhoods():
     from api.search import _supabase
     rows = _supabase.table("cafes").select("neighborhood").execute().data or []
-    seen = set()
-    result = []
+    counts: dict[str, int] = {}
     for r in rows:
         n = r.get("neighborhood")
-        if n and n not in seen:
-            seen.add(n)
-            result.append(n)
-    return {"neighborhoods": sorted(result)}
+        if n:
+            counts[n] = counts.get(n, 0) + 1
+    return {
+        "neighborhoods": [
+            {"name": n, "count": c} for n, c in sorted(counts.items())
+        ]
+    }
 
 
 @app.post("/search", response_model=SearchResponse)

@@ -2,7 +2,7 @@
 
 ## Frontend
 
-- **Show cafe count by neighborhood** — display the number of cafes available per neighborhood, either below each pill or on an "explore by area" section. Requires a new API endpoint or extending `/neighborhoods` to return counts alongside names.
+- ~~**Show cafe count by neighborhood**~~ — done. `/neighborhoods` now returns `{name, count}` and pills show the count inline.
 
 ## Search & Filtering
 

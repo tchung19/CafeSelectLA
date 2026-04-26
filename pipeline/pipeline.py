@@ -52,6 +52,7 @@ from vision_pass_b import run_pass_b, load_per_photo_dir
 from run_llm_extractor import run as run_llm
 from db_builder import run as run_db_build, build_record, completeness, _resolve_vision, _load_json
 from regions import extract_neighborhood
+from upload_to_supabase import upload as upload_to_supabase
 
 
 # ── Single-cafe orchestrator ──────────────────────────────────────────────────
@@ -275,10 +276,6 @@ def main() -> None:
         )
         if rec:
             records.append(rec)
-            # Save individual record immediately
-            folder = gp.sanitize_name(rec.get("name") or place_id)
-            with open(db_dir / f"{folder}.json", "w") as f:
-                json.dump(rec, f, indent=2, ensure_ascii=False)
         print()
 
         if i < len(place_ids):
@@ -303,6 +300,10 @@ def main() -> None:
     print(f"✅ Done — {len(records)}/{len(place_ids)} cafes processed")
     print(f"   Records → {db_dir}/cafes.json")
     print(f"{'=' * 60}\n")
+
+    print("Uploading to Supabase...")
+    upload_to_supabase()
+    print("✅ Supabase upload complete\n")
 
 
 if __name__ == "__main__":

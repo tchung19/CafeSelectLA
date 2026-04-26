@@ -24,6 +24,7 @@ class Settings(BaseSettings):
     anthropic_api_key: str = ""
     supabase_url: str = ""
     supabase_key: str = ""
+    supabase_service_key: str = ""
 
 
 def require(name: str, value: str) -> str:

@@ -20,7 +20,7 @@ export default function SearchPage() {
   const [error, setError] = useState(null);
 
   async function handleSearch() {
-    const fullQuery = neighborhood ? `${query} in ${neighborhood}` : query;
+    const fullQuery = neighborhood ? `${query} in ${neighborhood.name ?? neighborhood}` : query;
     if (!fullQuery.trim()) return;
 
     setLoading(true);
@@ -41,6 +41,7 @@ export default function SearchPage() {
   }
 
   function handleNeighborhoodSelect(n) {
+    // n is a {name, count} object; store whole object so pills can compare
     setNeighborhood(n);
   }
 

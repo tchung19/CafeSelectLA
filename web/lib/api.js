@@ -2,6 +2,7 @@ export async function fetchNeighborhoods() {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/neighborhoods`);
   if (!res.ok) return [];
   const data = await res.json();
+  // Returns [{name, count}, ...]
   return data.neighborhoods ?? [];
 }
 
