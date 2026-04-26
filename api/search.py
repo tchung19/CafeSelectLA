@@ -43,7 +43,7 @@ BOOL_FIELDS = {
     "serves_dinner", "serves_dessert",
 }
 
-EQ_FIELDS = {"neighborhood", "region", "noise_level"}
+EQ_FIELDS = {"neighborhood", "region"}
 
 
 def _parse_hours_range(hours_str: str | None) -> tuple[int, int] | None:
@@ -111,13 +111,25 @@ def run_search(filters: dict) -> list[dict]:
 
     query = _supabase.table("cafes").select(RETURN_COLS)
 
+    exclude_loud = False
+
     for field, value in filters.items():
         if field in BOOL_FIELDS and value is True:
             query = query.eq(field, True)
+            if field == "study_friendly":
+                exclude_loud = True
+        elif field == "noise_level":
+            if value == "quiet":
+                exclude_loud = True  # most rows have null noise_level; exclude loud rather than require quiet
+            else:
+                query = query.eq(field, value)
         elif field in EQ_FIELDS:
             query = query.eq(field, value)
         elif field == "has_outlets" and value:
             query = query.gt("has_outlets", 0)
+
+    if exclude_loud:
+        query = query.or_("noise_level.neq.loud,noise_level.is.null")
 
     query = query.order(sort_by, desc=True).limit(fetch_limit)
     results = query.execute().data or []
