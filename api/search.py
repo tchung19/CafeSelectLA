@@ -182,6 +182,7 @@ def run_embedding_search(query: str, limit: int = 6) -> list[dict]:
         _supabase.table("cafes")
         .select(RETURN_COLS)
         .in_("place_id", list(id_order.keys()))
+        .gte("review_count", 5)
         .execute()
         .data or []
     )
