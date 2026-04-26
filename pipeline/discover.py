@@ -25,41 +25,22 @@ from __future__ import annotations
 import argparse
 import csv
 import json
-import os
 import sys
 import time
 from datetime import datetime
 from pathlib import Path
 
+_HERE = Path(__file__).parent
+
 import requests
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 
-# ── Env loading ───────────────────────────────────────────────────────────────
+from config import settings, require
 
-_HERE = Path(__file__).parent
-_ENV_CANDIDATES = [
-    _HERE.parent / ".env",
-    _HERE.parent.parent / ".env",
-    _HERE.parent.parent / "pre_build_validation" / ".env",
-]
-for _env_path in _ENV_CANDIDATES:
-    if _env_path.exists():
-        with open(_env_path) as _f:
-            for _line in _f:
-                _line = _line.strip()
-                if not _line or _line.startswith("#") or "=" not in _line:
-                    continue
-                _k, _, _v = _line.partition("=")
-                _k = _k.strip(); _v = _v.strip().strip('"').strip("'")
-                if _k not in os.environ:
-                    os.environ[_k] = _v
-        break
+require("GOOGLE_PLACES_API_KEY", settings.google_places_api_key)
 
-API_KEY = os.environ.get("GOOGLE_PLACES_API_KEY", "")
-if not API_KEY:
-    print("❌ GOOGLE_PLACES_API_KEY not set", file=sys.stderr)
-    sys.exit(1)
+API_KEY = settings.google_places_api_key
 
 BASE_URL = "https://places.googleapis.com/v1"
 HEADERS = {

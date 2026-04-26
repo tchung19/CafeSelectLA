@@ -18,12 +18,12 @@ from typing import Literal, Optional
 import anthropic
 from pydantic import BaseModel, Field
 
-from config import ANTHROPIC_API_KEY, require
+from config import settings, require
 
-require("ANTHROPIC_API_KEY", ANTHROPIC_API_KEY)
+require("ANTHROPIC_API_KEY", settings.anthropic_api_key)
 
 MODEL = "claude-haiku-4-5"
-_client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
+_client = anthropic.Anthropic(api_key=settings.anthropic_api_key)
 
 
 # ── Output schema ─────────────────────────────────────────────────────────────

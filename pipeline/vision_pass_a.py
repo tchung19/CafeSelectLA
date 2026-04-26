@@ -21,11 +21,11 @@ from pathlib import Path
 
 from openai import OpenAI
 
-from config import OPENAI_API_KEY, require
+from config import settings, require
 
-require("OPENAI_API_KEY", OPENAI_API_KEY)
+require("OPENAI_API_KEY", settings.openai_api_key)
 
-_client = OpenAI(api_key=OPENAI_API_KEY)
+_client = OpenAI(api_key=settings.openai_api_key)
 
 MODEL = "gpt-4o"
 

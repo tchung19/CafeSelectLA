@@ -16,14 +16,14 @@ import requests
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 
-from config import GOOGLE_PLACES_API_KEY, require
+from config import settings, require
 
-require("GOOGLE_PLACES_API_KEY", GOOGLE_PLACES_API_KEY)
+require("GOOGLE_PLACES_API_KEY", settings.google_places_api_key)
 
 BASE_URL = "https://places.googleapis.com/v1"
 HEADERS = {
     "Content-Type": "application/json",
-    "X-Goog-Api-Key": GOOGLE_PLACES_API_KEY,
+    "X-Goog-Api-Key": settings.google_places_api_key,
 }
 
 # ── Session ───────────────────────────────────────────────────────────────────
@@ -116,7 +116,7 @@ def fetch_photo(photo_resource_name: str, save_path: str | Path, max_width: int 
     Returns the path written.
     """
     url = f"{BASE_URL}/{photo_resource_name}/media"
-    params = {"maxWidthPx": max_width, "key": GOOGLE_PLACES_API_KEY}
+    params = {"maxWidthPx": max_width, "key": settings.google_places_api_key}
 
     resp = SESSION.get(url, params=params, timeout=30, stream=True)
     resp.raise_for_status()

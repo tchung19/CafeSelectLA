@@ -5,27 +5,12 @@ Sends user query to Claude Haiku and returns structured filter dict.
 
 from __future__ import annotations
 import json
-import os
-from pathlib import Path
 
 import anthropic
 
-# Load .env
-_HERE = Path(__file__).parent
-for _p in [_HERE.parent / ".env", _HERE.parent.parent / ".env"]:
-    if _p.exists():
-        with open(_p) as f:
-            for line in f:
-                line = line.strip()
-                if not line or line.startswith("#") or "=" not in line:
-                    continue
-                k, _, v = line.partition("=")
-                k = k.strip(); v = v.strip().strip('"').strip("'")
-                if k not in os.environ:
-                    os.environ[k] = v
-        break
+from api.config import settings
 
-_client = anthropic.Anthropic(api_key=os.environ.get("ANTHROPIC_API_KEY", ""))
+_client = anthropic.Anthropic(api_key=settings.anthropic_api_key)
 
 SYSTEM_PROMPT = """\
 You extract structured search filters from a user's cafe search query.
@@ -36,7 +21,6 @@ Available filter fields (only include fields clearly implied by the query):
 - study_friendly: true/false
 - noise_level: one of [quiet, moderate, loud]
 - has_outlets: 1 (has outlets) — only set if user mentions outlets/plugs/charging
-- wifi_quality: 1 (has wifi) — only set if user mentions wifi
 - open_after: integer HHMM — closing time the user needs. Examples: "after 7pm" → 1900, "after 7:45pm" → 1945, "open late" → 2000. Only set if user mentions a specific time or "late/evening/after work". Do NOT set for "open now".
 - open_now: true — only set if user says "open now" or "currently open".
 - open_weekends: true — only set if user mentions weekend

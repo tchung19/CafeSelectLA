@@ -4,31 +4,16 @@ Translates parsed filters into a Supabase query and returns matching cafes.
 """
 
 from __future__ import annotations
-import os
 import re
 from datetime import datetime
-from pathlib import Path
 
 from supabase import create_client, Client
 
-# Load .env
-_HERE = Path(__file__).parent
-for _p in [_HERE.parent / ".env", _HERE.parent.parent / ".env"]:
-    if _p.exists():
-        with open(_p) as f:
-            for line in f:
-                line = line.strip()
-                if not line or line.startswith("#") or "=" not in line:
-                    continue
-                k, _, v = line.partition("=")
-                k = k.strip(); v = v.strip().strip('"').strip("'")
-                if k not in os.environ:
-                    os.environ[k] = v
-        break
+from api.config import settings
 
 _supabase: Client = create_client(
-    os.environ["SUPABASE_URL"],
-    os.environ["SUPABASE_SERVICE_KEY"],
+    settings.supabase_url,
+    settings.supabase_service_key,
 )
 
 _DAY_COL = ["hours_mon", "hours_tue", "hours_wed", "hours_thu", "hours_fri", "hours_sat", "hours_sun"]
@@ -39,7 +24,7 @@ RETURN_COLS = ",".join([
     "place_id", "name", "neighborhood", "region", "address",
     "rating", "review_count", "price_level",
     "overall_vibe", "good_for_dates", "instagrammable",
-    "study_friendly", "noise_level", "has_outlets", "wifi_quality",
+    "study_friendly", "noise_level", "has_outlets",
     "open_after_5pm", "open_weekends",
     "has_matcha", "has_specialty_coffee", "has_vegan_options", "has_patio",
     "seating_capacity", "space_size", "best_time_to_visit",
@@ -54,6 +39,7 @@ BOOL_FIELDS = {
     "has_specialty_coffee", "has_vegan_options", "has_patio",
     "dogs_allowed", "solo_friendly", "group_friendly",
 }
+
 EQ_FIELDS = {"neighborhood", "region", "noise_level"}
 
 
@@ -129,8 +115,6 @@ def run_search(filters: dict) -> list[dict]:
             query = query.eq(field, value)
         elif field == "has_outlets" and value:
             query = query.gt("has_outlets", 0)
-        elif field == "wifi_quality" and value:
-            query = query.gt("wifi_quality", 0)
 
     query = query.order(sort_by, desc=True).limit(fetch_limit)
     results = query.execute().data or []
