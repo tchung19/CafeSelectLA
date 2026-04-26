@@ -113,6 +113,7 @@ def run_search(filters: dict) -> list[dict]:
     fetch_limit = limit * 4 if (open_after or open_now) else limit
 
     query = _supabase.table("cafes").select(RETURN_COLS)
+    query = query.gte("review_count", 5)
 
     exclude_loud = False
 

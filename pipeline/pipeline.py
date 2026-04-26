@@ -124,6 +124,12 @@ def process_cafe(
         print(f"    ⏭️  Skipping — primary_type={primary_type} is not a cafe")
         return None
 
+    # ── Business status gate — skip closed places ─────────────────────────────
+    status = details.get("businessStatus", "OPERATIONAL")
+    if status in ("CLOSED_TEMPORARILY", "CLOSED_PERMANENTLY"):
+        print(f"    ⏭️  Skipping — business_status={status}")
+        return None
+
     # ── Step 2+3: Vision ───────────────────────────────────────────────────────
     if not skip_vision:
         photos_dir = cafe_dir / "photos"
