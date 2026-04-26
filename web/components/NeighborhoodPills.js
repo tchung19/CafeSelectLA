@@ -12,8 +12,8 @@ export default function NeighborhoodPills({ neighborhoods, selected, onSelect })
             onClick={() => onSelect(selected === n ? null : n)}
             className={`rounded-full border px-3 py-1 text-sm transition-colors ${
               selected === n
-                ? 'border-gray-900 bg-gray-900 text-white'
-                : 'border-gray-200 bg-white text-gray-600 hover:border-gray-400'
+                ? 'border-amber-700 bg-amber-700 text-white'
+                : 'border-gray-200 bg-white text-gray-600 hover:border-amber-400 dark:bg-transparent dark:text-gray-400 dark:border-gray-700 dark:hover:border-amber-500'
             }`}
           >
             {n}

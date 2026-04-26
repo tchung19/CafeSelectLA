@@ -18,7 +18,7 @@ export default function SearchBar({ value, onChange, onSubmit, loading }) {
       <button
         onClick={onSubmit}
         disabled={loading || !value.trim()}
-        className="rounded-xl bg-gray-900 px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-gray-700 disabled:opacity-40 disabled:cursor-not-allowed"
+        className="rounded-xl bg-amber-700 px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-amber-800 disabled:opacity-40 disabled:cursor-not-allowed"
       >
         {loading ? 'Searching…' : 'Search'}
       </button>

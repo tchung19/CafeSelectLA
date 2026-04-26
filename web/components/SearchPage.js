@@ -50,7 +50,7 @@ export default function SearchPage() {
     <main className="mx-auto max-w-5xl px-4 py-12 sm:px-6">
       {/* Header */}
       <div className="mb-8 text-center">
-        <h1 className="text-3xl font-bold tracking-tight text-gray-900">CafeSelect</h1>
+        <h1 className="text-3xl font-bold tracking-tight text-amber-700 dark:text-amber-500">CafeSelect</h1>
         <p className="mt-2 text-gray-500">
           Describe what you need. Get cafes that actually match.
         </p>
