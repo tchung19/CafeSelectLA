@@ -7,9 +7,12 @@ from __future__ import annotations
 import re
 from datetime import datetime
 
+from openai import OpenAI
 from supabase import create_client, Client
 
 from api.config import settings
+
+_openai = OpenAI(api_key=settings.openai_api_key)
 
 _supabase: Client = create_client(
     settings.supabase_url,
@@ -157,3 +160,34 @@ def run_search(filters: dict) -> list[dict]:
             r.pop(col, None)
 
     return results
+
+
+def run_embedding_search(query: str, limit: int = 6) -> list[dict]:
+    """Embed the query and return cafes ranked by semantic similarity."""
+    response = _openai.embeddings.create(model="text-embedding-3-small", input=query)
+    vector = response.data[0].embedding
+
+    rpc_result = _supabase.rpc(
+        "match_cafes",
+        {"query_embedding": vector, "match_count": limit},
+    ).execute()
+
+    if not rpc_result.data:
+        return []
+
+    # Preserve similarity ranking after fetching full records
+    id_order = {r["place_id"]: i for i, r in enumerate(rpc_result.data)}
+    records = (
+        _supabase.table("cafes")
+        .select(RETURN_COLS)
+        .in_("place_id", list(id_order.keys()))
+        .execute()
+        .data or []
+    )
+    records.sort(key=lambda r: id_order.get(r["place_id"], 999))
+
+    for r in records:
+        for col in _DAY_COL:
+            r.pop(col, None)
+
+    return records

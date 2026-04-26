@@ -45,9 +45,13 @@ Available filter fields (only include fields clearly implied by the query):
 Also extract:
 - limit: number of results requested (default 6, max 10)
 - sort_by: "rating" (default) or "review_count"
+- search_mode:
+  - "filter" — query has specific constraints (neighborhood, hours, amenities, matcha, outlets, etc.)
+  - "embedding" — query is purely about vibe/atmosphere/feeling (e.g. "chill vibe", "cozy", "aesthetic", "romantic", "feels like a library")
+  - "hybrid" — query combines vibe with at least one specific constraint (e.g. "cozy cafe with matcha", "romantic spot open late")
 
 Return ONLY valid JSON, no explanation. Example:
-{"neighborhood": "Westwood", "study_friendly": true, "noise_level": "quiet", "limit": 6}
+{"neighborhood": "Westwood", "study_friendly": true, "noise_level": "quiet", "limit": 6, "search_mode": "filter"}
 """
 
 

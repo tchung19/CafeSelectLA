@@ -14,7 +14,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
 from api.query_parser import parse_query
-from api.search import run_search
+from api.search import run_search, run_embedding_search
 
 app = FastAPI(
     title="CafeSelect API",
@@ -72,11 +72,29 @@ def search(req: SearchRequest):
         raise HTTPException(status_code=400, detail="Query cannot be empty")
 
     filters = parse_query(req.query)
-    results = run_search(filters)
+    search_mode = filters.pop("search_mode", "filter")
+    limit = int(filters.get("limit", 6))
+
+    if search_mode == "embedding":
+        results = run_embedding_search(req.query, limit=limit)
+        filters.pop("limit", None)
+    elif search_mode == "hybrid":
+        # Filters narrow candidates; embedding search fills gaps if needed
+        filter_results = run_search(dict(filters))
+        if len(filter_results) >= limit:
+            results = filter_results
+        else:
+            embed_results = run_embedding_search(req.query, limit=limit)
+            seen = {r["place_id"] for r in filter_results}
+            extras = [r for r in embed_results if r["place_id"] not in seen]
+            results = (filter_results + extras)[:limit]
+        filters.pop("limit", None)
+    else:
+        results = run_search(filters)
 
     return SearchResponse(
         query=req.query,
-        filters=filters,
+        filters={"search_mode": search_mode, **filters},
         count=len(results),
         results=results,
     )
