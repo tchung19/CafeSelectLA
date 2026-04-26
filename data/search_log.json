@@ -30,5 +30,21 @@
     "found": 7,
     "new": 6,
     "already_in_db": 1
+  },
+  {
+    "ts": "2026-04-26 01:52",
+    "mode": "grid",
+    "neighborhood": "Brentwood",
+    "found": 7,
+    "new": 6,
+    "already_in_db": 1
+  },
+  {
+    "ts": "2026-04-26 01:52",
+    "mode": "grid",
+    "neighborhood": "Sawtelle",
+    "found": 33,
+    "new": 28,
+    "already_in_db": 5
   }
 ]
