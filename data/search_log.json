@@ -54,5 +54,13 @@
     "found": 60,
     "new": 59,
     "already_in_db": 1
+  },
+  {
+    "ts": "2026-04-26 15:13",
+    "mode": "grid",
+    "neighborhood": "West Los Angeles",
+    "found": 38,
+    "new": 34,
+    "already_in_db": 4
   }
 ]

@@ -105,6 +105,7 @@ NEIGHBORHOODS: dict[str, dict] = {
     "Mar Vista":         {"query": "cafes in Mar Vista Los Angeles",         "bbox": (33.998, 34.030, -118.448, -118.408), "grid": 3},
     "Culver City":       {"query": "cafes in Culver City CA",                "bbox": (33.995, 34.035, -118.415, -118.365), "grid": 3},
     "Sawtelle":          {"query": "cafes in Sawtelle Los Angeles",          "bbox": (34.018, 34.050, -118.460, -118.428), "grid": 3},
+    "West Los Angeles":  {"query": "cafes in West Los Angeles CA",           "bbox": (34.018, 34.048, -118.440, -118.400), "grid": 3},
     "Palms":             {"query": "cafes in Palms Los Angeles",             "bbox": (34.005, 34.030, -118.420, -118.390), "grid": 3},
     "Century City":      {"query": "cafes in Century City Los Angeles",      "bbox": (34.048, 34.068, -118.435, -118.405), "grid": 3},
     "Pacific Palisades": {"query": "cafes in Pacific Palisades Los Angeles", "bbox": (34.030, 34.078, -118.555, -118.508), "grid": 3},
