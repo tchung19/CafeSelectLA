@@ -1,12 +1,9 @@
 'use client';
 
 const EXAMPLES = [
-  'quiet spot to study with outlets',
-  'aesthetic cafe good for a date',
-  'open late with matcha',
-  'outdoor patio in Venice',
-  'specialty coffee, not too loud',
-  'dog-friendly cafe in Santa Monica',
+  'open till 6pm with matcha',
+  'quiet spot good for studying',
+  'cafe with outdoor seating',
 ];
 
 export default function ExampleQueries({ onSelect }) {
