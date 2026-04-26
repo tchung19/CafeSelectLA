@@ -60,7 +60,8 @@ def neighborhoods():
             counts[n] = counts.get(n, 0) + 1
     return {
         "neighborhoods": [
-            {"name": n, "count": c} for n, c in sorted(counts.items())
+            {"name": n, "count": c}
+            for n, c in sorted(counts.items(), key=lambda x: -x[1])
         ]
     }
 

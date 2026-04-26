@@ -2,6 +2,8 @@
 
 ## Frontend
 
+- **Interactive neighborhood map** — simple SVG/GeoJSON map of West LA with clickable neighborhood shapes. Click an area → highlights amber → fires same filter as pills. Use `react-simple-maps` + LA City open data GeoJSON. Worth building once more neighborhoods (Santa Monica, Venice, Mar Vista) are covered so the map doesn't look sparse.
+
 - ~~**Show cafe count by neighborhood**~~ — done. `/neighborhoods` now returns `{name, count}` and pills show the count inline.
 
 ## Search & Filtering
