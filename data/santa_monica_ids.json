@@ -1,0 +1,356 @@
+[
+  {
+    "place_id": "ChIJc7_XMwa7woARMM5YkMiwdwc",
+    "name": "Gnarwhal Coffee Co.",
+    "address": "3101 Main St Unit D, Santa Monica, CA 90405, USA",
+    "neighborhood": "Santa Monica"
+  },
+  {
+    "place_id": "ChIJv13wczy7woARisbzL_8ogvc",
+    "name": "Anima Mundi Apothecary",
+    "address": "417 Rose Ave, Venice, CA 90291, USA",
+    "neighborhood": "Santa Monica"
+  },
+  {
+    "place_id": "ChIJn_1P1IO7woARL-f_XMNymHE",
+    "name": "Papille Gustative",
+    "address": "2823 Main St, Santa Monica, CA 90405, USA",
+    "neighborhood": "Santa Monica"
+  },
+  {
+    "place_id": "ChIJ92Z4dwa7woARQH7teOyuxpY",
+    "name": "Bread + Butter | Main Street",
+    "address": "2645 Main St, Santa Monica, CA 90405, USA",
+    "neighborhood": "Santa Monica"
+  },
+  {
+    "place_id": "ChIJ2ywhGtK6woARgioSqrzC5_E",
+    "name": "Groundwork Coffee Co.",
+    "address": "2908 Main St, Santa Monica, CA 90405, USA",
+    "neighborhood": "Santa Monica"
+  },
+  {
+    "place_id": "ChIJL9DsdRq7woARJRMPYlGHGhU",
+    "name": "Junior Cookies (Santa Monica)",
+    "address": "2726 Main St, Santa Monica, CA 90405, USA",
+    "neighborhood": "Santa Monica"
+  },
+  {
+    "place_id": "ChIJLYLE0Mq7woARUwqVkrpCKSo",
+    "name": "Baked on Rose",
+    "address": "51 Rose Ave, Venice, CA 90291, USA",
+    "neighborhood": "Santa Monica"
+  },
+  {
+    "place_id": "ChIJiXmr7JW6woARvO0TMrSKqKg",
+    "name": "Zinqué",
+    "address": "1440 Lincoln Blvd, Venice, CA 90291, USA",
+    "neighborhood": "Santa Monica"
+  },
+  {
+    "place_id": "ChIJ0zR6mSu7woAR4GeLs8NKAnQ",
+    "name": "Superba Food + Bread Venice",
+    "address": "1900 Lincoln Blvd, Venice, CA 90291, USA",
+    "neighborhood": "Santa Monica"
+  },
+  {
+    "place_id": "ChIJC4XkJOq6woAR1XBXALv9yjw",
+    "name": "5thavebagelry and Donuts",
+    "address": "1411 Lincoln Blvd suite F, Venice, CA 90291, USA",
+    "neighborhood": "Santa Monica"
+  },
+  {
+    "place_id": "ChIJ13qwmX27woAR2uHQXW_NzOo",
+    "name": "à côté",
+    "address": "1440 Lincoln Blvd, Venice, CA 90291, USA",
+    "neighborhood": "Santa Monica"
+  },
+  {
+    "place_id": "ChIJYQzxU4q7woARg-2t8eWSIso",
+    "name": "Cooshi",
+    "address": "1617 Lincoln Blvd, Venice, CA 90291, USA",
+    "neighborhood": "Santa Monica"
+  },
+  {
+    "place_id": "ChIJoTqMzM-kwoARu_Eb7zx4n30",
+    "name": "The Cheesecake Factory",
+    "address": "395 Santa Monica Pl Suite 305, Santa Monica, CA 90401, USA",
+    "neighborhood": "Santa Monica"
+  },
+  {
+    "place_id": "ChIJz2J0OtCkwoAR7-boyoyoCTM",
+    "name": "Espresso Cielo",
+    "address": "1431 2nd St, Santa Monica, CA 90401, USA",
+    "neighborhood": "Santa Monica"
+  },
+  {
+    "place_id": "ChIJnfdwHvilwoARtn_9vi0xUVo",
+    "name": "Bacio di Latte | Santa Monica, LA",
+    "address": "331 Santa Monica Blvd, Santa Monica, CA 90401, USA",
+    "neighborhood": "Santa Monica"
+  },
+  {
+    "place_id": "ChIJOz1348SkwoARVV2J6EPzOfo",
+    "name": "Perry’s Cafe & Beach Rentals - 1200",
+    "address": "1200 Pacific Coast Hwy, Santa Monica, CA 90401, USA",
+    "neighborhood": "Santa Monica"
+  },
+  {
+    "place_id": "ChIJW3tLhc-kwoARfUXifuZvTdc",
+    "name": "The Coffee Bean & Tea Leaf",
+    "address": "1312 3rd Street Promenade, Santa Monica, CA 90401, USA",
+    "neighborhood": "Santa Monica"
+  },
+  {
+    "place_id": "ChIJ6aAGHpOlwoAR5I5AL0LpoKc",
+    "name": "Odd One Out Tea Santa Monica",
+    "address": "1260 3rd Street Promenade, Santa Monica, CA 90401, USA",
+    "neighborhood": "Santa Monica"
+  },
+  {
+    "place_id": "ChIJ4T8Jss-kwoARvi3y88s0HAg",
+    "name": "Rapha Los Angeles",
+    "address": "1347 4th St, Santa Monica, CA 90401, USA",
+    "neighborhood": "Santa Monica"
+  },
+  {
+    "place_id": "ChIJuX0QWG2lwoARr5jrDB0KybY",
+    "name": "Ye Olde King's Head Gift Shoppe, Bakery & Coffee",
+    "address": "132 Santa Monica Blvd, Santa Monica, CA 90401, USA",
+    "neighborhood": "Santa Monica"
+  },
+  {
+    "place_id": "ChIJpfH0OfylwoARUEhOzdwjGhk",
+    "name": "Ugo Santa Monica",
+    "address": "1400 3rd Street Promenade, Santa Monica, CA 90401, USA",
+    "neighborhood": "Santa Monica"
+  },
+  {
+    "place_id": "ChIJBUYn28-kwoARIA2SHMQ_zeQ",
+    "name": "Caffe Bella",
+    "address": "1400 3rd Street Promenade, Santa Monica, CA 90401, USA",
+    "neighborhood": "Santa Monica"
+  },
+  {
+    "place_id": "ChIJcRvx2VilwoART0FhAX65X8s",
+    "name": "OM42",
+    "address": "1434 4th St, Santa Monica, CA 90401, USA",
+    "neighborhood": "Santa Monica"
+  },
+  {
+    "place_id": "ChIJ4U4RJ86kwoARkyqVpB1Tcqw",
+    "name": "MoGo Coffee",
+    "address": "1434 4th St, Santa Monica, CA 90401, USA",
+    "neighborhood": "Santa Monica"
+  },
+  {
+    "place_id": "ChIJqUJ8DQClwoAR6xUc4o9f7-w",
+    "name": "Bungalow club",
+    "address": "THE BUNGALOW, 101 Wilshire Blvd, Santa Monica, CA 90401, USA",
+    "neighborhood": "Santa Monica"
+  },
+  {
+    "place_id": "ChIJq6Jr2ZGlwoARNdJrZTV2qGc",
+    "name": "Cosmic Cakery",
+    "address": "321 Santa Monica Blvd, Santa Monica, CA 90401, USA",
+    "neighborhood": "Santa Monica"
+  },
+  {
+    "place_id": "ChIJJ-hcPNOlwoAR77aG8GAS5pA",
+    "name": "iSno",
+    "address": "1260 3rd Street Promenade, Santa Monica, CA 90401, USA",
+    "neighborhood": "Santa Monica"
+  },
+  {
+    "place_id": "ChIJt1gXTMSlwoARFof3410hchM",
+    "name": "Santa Monica Cafe",
+    "address": "1447 Ocean Ave, Santa Monica, CA 90401, USA",
+    "neighborhood": "Santa Monica"
+  },
+  {
+    "place_id": "ChIJabvyoSu7woAR6NfQAQ_WHvU",
+    "name": "Donut King",
+    "address": "1912 Lincoln Blvd, Santa Monica, CA 90405, USA",
+    "neighborhood": "Santa Monica"
+  },
+  {
+    "place_id": "ChIJRTgpyUy7woARtFwcGiG03xc",
+    "name": "Winston Pies To Go",
+    "address": "826 Pico Blvd, Santa Monica, CA 90405, USA",
+    "neighborhood": "Santa Monica"
+  },
+  {
+    "place_id": "ChIJxy00B3elwoARnXbLujD1j3o",
+    "name": "Rustic Coffee",
+    "address": "169 W Channel Rd, Santa Monica, CA 90402, USA",
+    "neighborhood": "Santa Monica"
+  },
+  {
+    "place_id": "ChIJtdkJ95CkwoARgYE-R1BOoZ8",
+    "name": "Patrick's Roadhouse",
+    "address": "106 Entrada Dr, Santa Monica, CA 90402, USA",
+    "neighborhood": "Santa Monica"
+  },
+  {
+    "place_id": "ChIJgbw5hZulwoAREYidamPmfm0",
+    "name": "PaidScaling.com",
+    "address": "169 W Channel Rd, Santa Monica, CA 90402, USA",
+    "neighborhood": "Santa Monica"
+  },
+  {
+    "place_id": "ChIJceTnGrmkwoARctl72bHAwyw",
+    "name": "Primo Passo Coffee Co",
+    "address": "702 Montana Ave, Santa Monica, CA 90403, USA",
+    "neighborhood": "Santa Monica"
+  },
+  {
+    "place_id": "ChIJmfjal7mkwoAR78mTWO5TNJc",
+    "name": "Pavilions",
+    "address": "820 Montana Ave, Santa Monica, CA 90403, USA",
+    "neighborhood": "Santa Monica"
+  },
+  {
+    "place_id": "ChIJ66ta_7mkwoAROGdQ9nCuLTo",
+    "name": "Kreation Kafe & Juicery",
+    "address": "1023 Montana Ave, Santa Monica, CA 90403, USA",
+    "neighborhood": "Santa Monica"
+  },
+  {
+    "place_id": "ChIJQfNV8rmkwoARN9zy8-_OaXM",
+    "name": "Caffe Luxxe - Santa Monica",
+    "address": "925 Montana Ave, Santa Monica, CA 90403, USA",
+    "neighborhood": "Santa Monica"
+  },
+  {
+    "place_id": "ChIJUURrRQClwoAR8eIsTZUiHs0",
+    "name": "H&H Bagels",
+    "address": "710 Montana Ave, Santa Monica, CA 90403, USA",
+    "neighborhood": "Santa Monica"
+  },
+  {
+    "place_id": "ChIJR7mt4-mlwoARTHEYvfkB6SY",
+    "name": "Galvin Coffee & Bakery",
+    "address": "625 Montana Ave, Santa Monica, CA 90403, USA",
+    "neighborhood": "Santa Monica"
+  },
+  {
+    "place_id": "ChIJ1Zpfc52lwoART_pauHBVpVY",
+    "name": "Pavilions Bakery",
+    "address": "820 Montana Ave, Santa Monica, CA 90403, USA",
+    "neighborhood": "Santa Monica"
+  },
+  {
+    "place_id": "ChIJ-9iRTOi7woAREXdromhFx-k",
+    "name": "Tartine Santa Monica",
+    "address": "1925 Arizona Ave Suite 202, Santa Monica, CA 90404, USA",
+    "neighborhood": "Santa Monica"
+  },
+  {
+    "place_id": "ChIJA3qdoje7woARX-9IMCjRg_0",
+    "name": "goodboybob coffee roasters",
+    "address": "2058 Broadway, Santa Monica, CA 90404, USA",
+    "neighborhood": "Santa Monica"
+  },
+  {
+    "place_id": "ChIJE_imqjW7woARTXgXBQI4kZ0",
+    "name": "DK's Donuts & Bakery",
+    "address": "1614 Santa Monica Blvd, Santa Monica, CA 90404, USA",
+    "neighborhood": "Santa Monica"
+  },
+  {
+    "place_id": "ChIJ04lzgRq7woAR7D_S_mbYfWc",
+    "name": "Uppers Cafe & Bakeshop",
+    "address": "2024 Broadway, Santa Monica, CA 90404, USA",
+    "neighborhood": "Santa Monica"
+  },
+  {
+    "place_id": "ChIJqY_tHGq7woARoyzgJQ0wa3Y",
+    "name": "10 Speed Coffee",
+    "address": "1919 Santa Monica Blvd, Santa Monica, CA 90404, USA",
+    "neighborhood": "Santa Monica"
+  },
+  {
+    "place_id": "ChIJA2beIsi7woAR4JN3dN68rGg",
+    "name": "Café Lovi",
+    "address": "1912 Broadway, Santa Monica, CA 90404, USA",
+    "neighborhood": "Santa Monica"
+  },
+  {
+    "place_id": "ChIJcxFmfDe7woARuzRZn-PoU8A",
+    "name": "Renovo Juice & Smoothies",
+    "address": "2200 Colorado Ave, Santa Monica, CA 90404, USA",
+    "neighborhood": "Santa Monica"
+  },
+  {
+    "place_id": "ChIJPcjzVgC7woARdXYkDNUb9s0",
+    "name": "The Coffee Bean & Tea Leaf",
+    "address": "2021 Santa Monica Blvd, Santa Monica, CA 90404, USA",
+    "neighborhood": "Santa Monica"
+  },
+  {
+    "place_id": "ChIJ_-Ml0iETAHwRCrSZfKRAGSg",
+    "name": "Nature Macarons",
+    "address": "1423 19th St, Santa Monica, CA 90404, USA",
+    "neighborhood": "Santa Monica"
+  },
+  {
+    "place_id": "ChIJi9OtUcG7woARlqkHkQjHwAQ",
+    "name": "Gemini Bakery",
+    "address": "1423 19th St, Santa Monica, CA 90404, USA",
+    "neighborhood": "Santa Monica"
+  },
+  {
+    "place_id": "ChIJMc926BC7woARYbHWRYB6s1c",
+    "name": "UnUrban Coffee House",
+    "address": "3301 Pico Blvd, Santa Monica, CA 90405, USA",
+    "neighborhood": "Santa Monica"
+  },
+  {
+    "place_id": "ChIJR_vZ6hC7woARwCc7-WfYaCM",
+    "name": "Rejuice",
+    "address": "3238 Pico Blvd, Santa Monica, CA 90405, USA",
+    "neighborhood": "Santa Monica"
+  },
+  {
+    "place_id": "ChIJedP8gSO7woARwkSfDT3iVm4",
+    "name": "Flying Dutchman European Pastry Shop",
+    "address": "3307 Pico Blvd, Santa Monica, CA 90405, USA",
+    "neighborhood": "Santa Monica"
+  },
+  {
+    "place_id": "ChIJd9jc5dy7woARiRB7L08eJT0",
+    "name": "Intelligentsia Coffee Santa Monica Coffeebar",
+    "address": "3010 Pico Blvd, Santa Monica, CA 90405, USA",
+    "neighborhood": "Santa Monica"
+  },
+  {
+    "place_id": "ChIJo5gjhpK7woAReWHlZfatYoU",
+    "name": "Cafe Belen",
+    "address": "11925 Santa Monica Blvd, Los Angeles, CA 90025, USA",
+    "neighborhood": "Santa Monica"
+  },
+  {
+    "place_id": "ChIJ9U0rC2-7woARqc9xHTV08Qc",
+    "name": "GoodPeople",
+    "address": "11609 Santa Monica Blvd, Los Angeles, CA 90025, USA",
+    "neighborhood": "Santa Monica"
+  },
+  {
+    "place_id": "ChIJaX6LUmi7woARQG0iLDsAmsY",
+    "name": "Board House Coffee",
+    "address": "11901 Santa Monica Blvd #112, Los Angeles, CA 90025, USA",
+    "neighborhood": "Santa Monica"
+  },
+  {
+    "place_id": "ChIJXYiMC2-7woAROM0Mu4SgPH8",
+    "name": "Star Bakery",
+    "address": "11628 Santa Monica Blvd #6, Los Angeles, CA 90025, USA",
+    "neighborhood": "Santa Monica"
+  },
+  {
+    "place_id": "ChIJY3eFIwC7woARNbQV-O7lgNk",
+    "name": "Manoly's (Bakery & Cafe)",
+    "address": "11711 Santa Monica Blvd, Los Angeles, CA 90025, USA",
+    "neighborhood": "Santa Monica"
+  }
+]
