@@ -18,6 +18,7 @@ export default function SearchPage() {
   const [results, setResults] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [debugInfo, setDebugInfo] = useState(null);
 
   async function handleSearch() {
     const fullQuery = neighborhood ? `${query} in ${neighborhood.name ?? neighborhood}` : query;
@@ -25,10 +26,12 @@ export default function SearchPage() {
 
     setLoading(true);
     setError(null);
+    setDebugInfo(null);
 
     try {
       const data = await searchCafes(fullQuery);
       setResults(data.results);
+      setDebugInfo(data.filters);
     } catch {
       setError('Something went wrong. Make sure the API is running.');
     } finally {
@@ -83,6 +86,23 @@ export default function SearchPage() {
       {/* Error */}
       {error && (
         <p className="mt-6 text-sm text-red-500">{error}</p>
+      )}
+
+      {/* Debug panel */}
+      {debugInfo && (
+        <div className="mt-8 rounded-lg border border-dashed border-gray-200 dark:border-gray-700 p-4 text-xs font-mono text-gray-400 dark:text-gray-500">
+          <span className={`mr-3 font-semibold ${
+            debugInfo.search_mode === 'embedding' ? 'text-violet-500' :
+            debugInfo.search_mode === 'hybrid'    ? 'text-amber-500' :
+                                                    'text-blue-500'
+          }`}>
+            {debugInfo.search_mode ?? 'filter'}
+          </span>
+          {Object.entries(debugInfo)
+            .filter(([k]) => k !== 'search_mode')
+            .map(([k, v]) => `${k}: ${JSON.stringify(v)}`)
+            .join(' · ')}
+        </div>
       )}
 
       {/* Results */}
