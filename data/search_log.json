@@ -46,5 +46,13 @@
     "found": 33,
     "new": 28,
     "already_in_db": 5
+  },
+  {
+    "ts": "2026-04-26 12:22",
+    "mode": "grid",
+    "neighborhood": "Santa Monica",
+    "found": 60,
+    "new": 59,
+    "already_in_db": 1
   }
 ]
