@@ -105,7 +105,7 @@ def _today_hours_col() -> str:
 
 
 def run_search(filters: dict) -> list[dict]:
-    limit = min(int(filters.pop("limit", 5)), 10)
+    limit = min(int(filters.pop("limit", 6)), 10)
     sort_by = filters.pop("sort_by", "rating")
     open_after = filters.pop("open_after", None)
     open_now   = filters.pop("open_now", None)

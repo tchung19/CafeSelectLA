@@ -99,7 +99,7 @@ export default function SearchPage() {
             {debugInfo.search_mode ?? 'filter'}
           </span>
           {Object.entries(debugInfo)
-            .filter(([k]) => k !== 'search_mode')
+            .filter(([k]) => !['search_mode', 'limit', 'sort_by'].includes(k))
             .map(([k, v]) => `${k}: ${JSON.stringify(v)}`)
             .join(' · ')}
         </div>
