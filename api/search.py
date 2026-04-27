@@ -4,6 +4,7 @@ Translates parsed filters into a Supabase query and returns matching cafes.
 """
 
 from __future__ import annotations
+import random
 import re
 from datetime import datetime
 
@@ -110,7 +111,7 @@ def run_search(filters: dict) -> list[dict]:
     open_after = filters.pop("open_after", None)
     open_now   = filters.pop("open_now", None)
 
-    fetch_limit = limit * 4 if (open_after or open_now) else limit
+    fetch_limit = limit * 4 if (open_after or open_now) else limit * 3
 
     query = _supabase.table("cafes").select(RETURN_COLS)
     query = query.gte("review_count", 5)
@@ -153,7 +154,9 @@ def run_search(filters: dict) -> list[dict]:
             if open_after and close_time < open_after:
                 continue
             filtered.append(r)
-        results = filtered[:limit]
+        results = filtered
+
+    results = random.sample(results, min(limit, len(results)))
 
     # Strip hours columns from response
     for r in results:
@@ -170,7 +173,7 @@ def run_embedding_search(query: str, limit: int = 6) -> list[dict]:
 
     rpc_result = _supabase.rpc(
         "match_cafes",
-        {"query_embedding": vector, "match_count": limit},
+        {"query_embedding": vector, "match_count": limit * 3},
     ).execute()
 
     if not rpc_result.data:
@@ -186,7 +189,7 @@ def run_embedding_search(query: str, limit: int = 6) -> list[dict]:
         .execute()
         .data or []
     )
-    records.sort(key=lambda r: id_order.get(r["place_id"], 999))
+    records = random.sample(records, min(limit, len(records)))
 
     for r in records:
         for col in _DAY_COL:
