@@ -128,6 +128,9 @@ def run_search(filters: dict) -> list[dict]:
                 exclude_loud = True  # most rows have null noise_level; exclude loud rather than require quiet
             else:
                 query = query.eq(field, value)
+        elif field == "neighborhoods":
+            if isinstance(value, list) and value:
+                query = query.in_("neighborhood", value)
         elif field in EQ_FIELDS:
             query = query.eq(field, value)
         elif field == "has_outlets" and value:

@@ -1,0 +1,428 @@
+[
+  {
+    "place_id": "ChIJV2XLBaO6woARqP-LYI1gFB0",
+    "name": "Hinano Cafe",
+    "address": "15 Washington Blvd, Venice, CA 90292, USA",
+    "neighborhood": "Venice"
+  },
+  {
+    "place_id": "ChIJcc6eBXe7woARDGcEqICYhe4",
+    "name": "CatCafe Lounge | Cats + Kittens",
+    "address": "114 Washington Blvd, Venice, CA 90292, USA",
+    "neighborhood": "Venice"
+  },
+  {
+    "place_id": "ChIJg0loAaO6woARjZCajfcxjuM",
+    "name": "The Cow's End Cafe",
+    "address": "34 Washington Blvd, Marina Del Rey, CA 90292, USA",
+    "neighborhood": "Venice"
+  },
+  {
+    "place_id": "ChIJE2GsEbq7woARs4rCmCnCx38",
+    "name": "Alana's Coffee Roasters",
+    "address": "2524 Pacific Ave, Venice, CA 90291, USA",
+    "neighborhood": "Venice"
+  },
+  {
+    "place_id": "ChIJ-28Z_KK6woARk3VOD4K8rWk",
+    "name": "Cold Stone Creamery",
+    "address": "36 Washington Blvd, Marina Del Rey, CA 90292, USA",
+    "neighborhood": "Venice"
+  },
+  {
+    "place_id": "ChIJs3znAaO6woARKZt5ato64V8",
+    "name": "Bay Garden Cafe Deli Market",
+    "address": "22 Washington Blvd, Marina Del Rey, CA 90292, USA",
+    "neighborhood": "Venice"
+  },
+  {
+    "place_id": "ChIJQ0BI8Ue7woAR9u3yDHJZspw",
+    "name": "Vegan Pop Up by XMarket",
+    "address": "2524 Pacific Ave, Venice, CA 90291, USA",
+    "neighborhood": "Venice"
+  },
+  {
+    "place_id": "ChIJsaOA88u7woART1ufMiRvV-8",
+    "name": "¡Salud!",
+    "address": "417 Washington Blvd, Venice, CA 90292, USA",
+    "neighborhood": "Venice"
+  },
+  {
+    "place_id": "ChIJmaA8en26woARpzLNyzzfGcE",
+    "name": "Pavilions",
+    "address": "4365 Glencoe Ave, Marina Del Rey, CA 90292, USA",
+    "neighborhood": "Venice"
+  },
+  {
+    "place_id": "ChIJh6MnO1C7woAR8KjUukv1n-A",
+    "name": "Alfred Coffee",
+    "address": "4625 Admiralty Way #107, Marina Del Rey, CA 90292, USA",
+    "neighborhood": "Venice"
+  },
+  {
+    "place_id": "ChIJNYPa8aexwoARiVYxwJDSCCw",
+    "name": "Crumbl",
+    "address": "4774 Admiralty Way, Marina Del Rey, CA 90292, USA",
+    "neighborhood": "Venice"
+  },
+  {
+    "place_id": "ChIJo-cxz3-6woARQU7jLk-xUBw",
+    "name": "SusieCakes - Marina Del Rey",
+    "address": "4714 Lincoln Blvd, Marina Del Rey, CA 90292, USA",
+    "neighborhood": "Venice"
+  },
+  {
+    "place_id": "ChIJL_-S8ai7woARn-HdBtVY_7E",
+    "name": "East Coast Bagel",
+    "address": "4375 Glencoe Ave D4, Marina Del Rey, CA 90292, USA",
+    "neighborhood": "Venice"
+  },
+  {
+    "place_id": "ChIJvxIOYLC7woARHpl98Gugx6k",
+    "name": "Cafecita",
+    "address": "13198 Mindanao Wy, Marina Del Rey, CA 90292, USA",
+    "neighborhood": "Venice"
+  },
+  {
+    "place_id": "ChIJQxF5t8O7woARMvAL_p9_SKo",
+    "name": "Pavilions Bakery",
+    "address": "4365 Glencoe Ave, Marina Del Rey, CA 90292, USA",
+    "neighborhood": "Venice"
+  },
+  {
+    "place_id": "ChIJYXw7tXm7woARYojoyTPkkWE",
+    "name": "The Waterfront Venice",
+    "address": "205 Ocean Front Walk, Venice, CA 90291, USA",
+    "neighborhood": "Venice"
+  },
+  {
+    "place_id": "ChIJc7_XMwa7woARMM5YkMiwdwc",
+    "name": "Gnarwhal Coffee Co.",
+    "address": "3101 Main St Unit D, Santa Monica, CA 90405, USA",
+    "neighborhood": "Venice"
+  },
+  {
+    "place_id": "ChIJn_1P1IO7woARL-f_XMNymHE",
+    "name": "Papille Gustative",
+    "address": "2823 Main St, Santa Monica, CA 90405, USA",
+    "neighborhood": "Venice"
+  },
+  {
+    "place_id": "ChIJ92Z4dwa7woARQH7teOyuxpY",
+    "name": "Bread + Butter | Main Street",
+    "address": "2645 Main St, Santa Monica, CA 90405, USA",
+    "neighborhood": "Venice"
+  },
+  {
+    "place_id": "ChIJ2ywhGtK6woARgioSqrzC5_E",
+    "name": "Groundwork Coffee Co.",
+    "address": "2908 Main St, Santa Monica, CA 90405, USA",
+    "neighborhood": "Venice"
+  },
+  {
+    "place_id": "ChIJL9DsdRq7woARJRMPYlGHGhU",
+    "name": "Junior Cookies (Santa Monica)",
+    "address": "2726 Main St, Santa Monica, CA 90405, USA",
+    "neighborhood": "Venice"
+  },
+  {
+    "place_id": "ChIJLYLE0Mq7woARUwqVkrpCKSo",
+    "name": "Baked on Rose",
+    "address": "51 Rose Ave, Venice, CA 90291, USA",
+    "neighborhood": "Venice"
+  },
+  {
+    "place_id": "ChIJMdyyucS6woAR5ZGh1-AKa0Q",
+    "name": "Groundwork Coffee Co.",
+    "address": "671 Rose Ave, Venice, CA 90291, USA",
+    "neighborhood": "Venice"
+  },
+  {
+    "place_id": "ChIJhY0JNXrBwoARUw6gdkG4Ej0",
+    "name": "Saint Maxime coffee",
+    "address": "560 Rose Ave, Venice, CA 90291, USA",
+    "neighborhood": "Venice"
+  },
+  {
+    "place_id": "ChIJOeToFo2jwoAReRc2HZan6As",
+    "name": "K Bakery Eatery + Bakeshop",
+    "address": "401 Lincoln Blvd, Venice, CA 90291, USA",
+    "neighborhood": "Venice"
+  },
+  {
+    "place_id": "ChIJG1_8rNy6woARFlff4P-QpqY",
+    "name": "WFM Coffee & Juice Bar",
+    "address": "225 Lincoln Blvd, Venice, CA 90291, USA",
+    "neighborhood": "Venice"
+  },
+  {
+    "place_id": "ChIJQV99_Jq7woARQbWQA-oVqb0",
+    "name": "MotionSweets",
+    "address": "724 Lincoln Blvd, Venice, CA 90291, USA",
+    "neighborhood": "Venice"
+  },
+  {
+    "place_id": "ChIJ80V2woO7woARfjLsP-VIHUs",
+    "name": "Fusion Piroshki",
+    "address": "401 Lincoln Blvd, Venice, CA 90291, USA",
+    "neighborhood": "Venice"
+  },
+  {
+    "place_id": "ChIJIcT4uvm7woARyPg1Uc9vNbs",
+    "name": "BisouBisou",
+    "address": "817 5th Ave, Venice, CA 90291, USA",
+    "neighborhood": "Venice"
+  },
+  {
+    "place_id": "ChIJ0zR6mSu7woAR4GeLs8NKAnQ",
+    "name": "Superba Food + Bread Venice",
+    "address": "1900 Lincoln Blvd, Venice, CA 90291, USA",
+    "neighborhood": "Venice"
+  },
+  {
+    "place_id": "ChIJwSZRv5K6woARXcKVy0VqIlw",
+    "name": "Deus Ex Machina - Emporium Of Post Modern Activities",
+    "address": "1001 Venice Blvd., Venice, CA 90291, USA",
+    "neighborhood": "Venice"
+  },
+  {
+    "place_id": "ChIJg5uax5K6woARDdg3E-KACuc",
+    "name": "Deus Venice",
+    "address": "1001 Venice Blvd., Venice, CA 90291, USA",
+    "neighborhood": "Venice"
+  },
+  {
+    "place_id": "ChIJpcC7Evi7woARO3FzQPcS8e0",
+    "name": "ZermenosCatering",
+    "address": "2210 Lincoln Blvd, Venice, CA 90291, USA",
+    "neighborhood": "Venice"
+  },
+  {
+    "place_id": "ChIJYWo1vFq7woAR6--sEIXi4ME",
+    "name": "Club Joyful Cafe",
+    "address": "2121 Lincoln Blvd, Venice, CA 90291, USA",
+    "neighborhood": "Venice"
+  },
+  {
+    "place_id": "ChIJEb8CoyS7woARfxMCaepmTXE",
+    "name": "Sneaky Good Coffee",
+    "address": "1919 Lincoln Blvd, Venice, CA 90291, USA",
+    "neighborhood": "Venice"
+  },
+  {
+    "place_id": "ChIJg58bC4y7woARumhbNPdaWV0",
+    "name": "Blueys Mar Vista",
+    "address": "12825 Venice Blvd., Los Angeles, CA 90066, USA",
+    "neighborhood": "Venice"
+  },
+  {
+    "place_id": "ChIJtxvWumG6woARmHRYJeB248I",
+    "name": "Röckenwagner Bakery, Café + Market",
+    "address": "12835 Washington Blvd, Los Angeles, CA 90066, USA",
+    "neighborhood": "Venice"
+  },
+  {
+    "place_id": "ChIJN0CnlYq7woARRHNE6PdQEbk",
+    "name": "Saba Coffee Shop",
+    "address": "12912 Venice Blvd., Los Angeles, CA 90066, USA",
+    "neighborhood": "Venice"
+  },
+  {
+    "place_id": "ChIJ3b7KDuW7woARer0A9Bb68Fs",
+    "name": "Kustaa Cheese & Wine",
+    "address": "12954 Washington Blvd, Los Angeles, CA 90066, USA",
+    "neighborhood": "Venice"
+  },
+  {
+    "place_id": "ChIJKYvRxGa6woARU1CmE0slCI8",
+    "name": "Nancy's Bakery",
+    "address": "12617 W Washington Blvd, Los Angeles, CA 90066, USA",
+    "neighborhood": "Venice"
+  },
+  {
+    "place_id": "ChIJc71_CgS7woAR4E22DUDyVek",
+    "name": "Little Bean Coffee",
+    "address": "707 Pico Blvd, Santa Monica, CA 90405, USA",
+    "neighborhood": "Venice"
+  },
+  {
+    "place_id": "ChIJabvyoSu7woAR6NfQAQ_WHvU",
+    "name": "Donut King",
+    "address": "1912 Lincoln Blvd, Santa Monica, CA 90405, USA",
+    "neighborhood": "Venice"
+  },
+  {
+    "place_id": "ChIJRTgpyUy7woARtFwcGiG03xc",
+    "name": "Winston Pies To Go",
+    "address": "826 Pico Blvd, Santa Monica, CA 90405, USA",
+    "neighborhood": "Venice"
+  },
+  {
+    "place_id": "ChIJlYoMhgu7woARUGyxlPVFlfQ",
+    "name": "Layla Bagels",
+    "address": "1614 Ocean Park Blvd, Santa Monica, CA 90405, USA",
+    "neighborhood": "Venice"
+  },
+  {
+    "place_id": "ChIJuX3V6u67woARJG2SQfFMmyM",
+    "name": "Jyan Isaac Bread",
+    "address": "1620 Ocean Park Blvd, Santa Monica, CA 90405, USA",
+    "neighborhood": "Venice"
+  },
+  {
+    "place_id": "ChIJe4QzYiC7woARsCMCi9Bwyh4",
+    "name": "Cafe Bolivar",
+    "address": "1741 Ocean Park Blvd, Santa Monica, CA 90405, USA",
+    "neighborhood": "Venice"
+  },
+  {
+    "place_id": "ChIJvw83Xt-6woAReDmGFtDX-bw",
+    "name": "Thyme Cafe and Market",
+    "address": "1630 Ocean Park Blvd, Santa Monica, CA 90405, USA",
+    "neighborhood": "Venice"
+  },
+  {
+    "place_id": "ChIJDd7ehSC7woAReccn2woYSmk",
+    "name": "Love Coffee Bar",
+    "address": "1732 Ocean Park Blvd, Santa Monica, CA 90405, USA",
+    "neighborhood": "Venice"
+  },
+  {
+    "place_id": "ChIJt1r_XgC7woARWT-LROPauqk",
+    "name": "Des Croissants Paris",
+    "address": "1704 Ocean Park Blvd, Santa Monica, CA 90405, USA",
+    "neighborhood": "Venice"
+  },
+  {
+    "place_id": "ChIJ8aWhTVu7woARJBUoLsy4FVk",
+    "name": "Love Coffee Bar",
+    "address": "3519 S Centinela Ave, Los Angeles, CA 90066, USA",
+    "neighborhood": "Venice"
+  },
+  {
+    "place_id": "ChIJ-9iRTOi7woAREXdromhFx-k",
+    "name": "Tartine Santa Monica",
+    "address": "1925 Arizona Ave Suite 202, Santa Monica, CA 90404, USA",
+    "neighborhood": "Venice"
+  },
+  {
+    "place_id": "ChIJE_imqjW7woARTXgXBQI4kZ0",
+    "name": "DK's Donuts & Bakery",
+    "address": "1614 Santa Monica Blvd, Santa Monica, CA 90404, USA",
+    "neighborhood": "Venice"
+  },
+  {
+    "place_id": "ChIJ04lzgRq7woAR7D_S_mbYfWc",
+    "name": "Uppers Cafe & Bakeshop",
+    "address": "2024 Broadway, Santa Monica, CA 90404, USA",
+    "neighborhood": "Venice"
+  },
+  {
+    "place_id": "ChIJl7oXy0q7woARnpob4wP7KKE",
+    "name": "Bagel Nosh Deli",
+    "address": "1629 Wilshire Blvd, Santa Monica, CA 90403, USA",
+    "neighborhood": "Venice"
+  },
+  {
+    "place_id": "ChIJqY_tHGq7woARoyzgJQ0wa3Y",
+    "name": "10 Speed Coffee",
+    "address": "1919 Santa Monica Blvd, Santa Monica, CA 90404, USA",
+    "neighborhood": "Venice"
+  },
+  {
+    "place_id": "ChIJA2beIsi7woAR4JN3dN68rGg",
+    "name": "Café Lovi",
+    "address": "1912 Broadway, Santa Monica, CA 90404, USA",
+    "neighborhood": "Venice"
+  },
+  {
+    "place_id": "ChIJpfYMRbWkwoARs2xPjwGCxpY",
+    "name": "Cafe Zella",
+    "address": "1531 Wilshire Blvd A, Santa Monica, CA 90403, USA",
+    "neighborhood": "Venice"
+  },
+  {
+    "place_id": "ChIJq-ie-kq7woARqSz86pVg1a0",
+    "name": "Cold Stone Creamery",
+    "address": "1824 Wilshire Blvd, Santa Monica, CA 90403, USA",
+    "neighborhood": "Venice"
+  },
+  {
+    "place_id": "ChIJPcjzVgC7woARdXYkDNUb9s0",
+    "name": "The Coffee Bean & Tea Leaf",
+    "address": "2021 Santa Monica Blvd, Santa Monica, CA 90404, USA",
+    "neighborhood": "Venice"
+  },
+  {
+    "place_id": "ChIJT-vX0cq7woAR598FzIQek8U",
+    "name": "Cafe Berlina",
+    "address": "1620 Wilshire Blvd, Santa Monica, CA 90403, USA",
+    "neighborhood": "Venice"
+  },
+  {
+    "place_id": "ChIJ58l-7g27woAR4VfsmUrV5jU",
+    "name": "Mama's Kiss CAFE",
+    "address": "1502 Broadway, Santa Monica, CA 90404, USA",
+    "neighborhood": "Venice"
+  },
+  {
+    "place_id": "ChIJ_-Ml0iETAHwRCrSZfKRAGSg",
+    "name": "Nature Macarons",
+    "address": "1423 19th St, Santa Monica, CA 90404, USA",
+    "neighborhood": "Venice"
+  },
+  {
+    "place_id": "ChIJi9OtUcG7woARlqkHkQjHwAQ",
+    "name": "Gemini Bakery",
+    "address": "1423 19th St, Santa Monica, CA 90404, USA",
+    "neighborhood": "Venice"
+  },
+  {
+    "place_id": "ChIJL2qEEuu7woARAnbBmdsgfhg",
+    "name": "Tiato Kitchen + Venue",
+    "address": "2700 Colorado Ave #190, Santa Monica, CA 90404, USA",
+    "neighborhood": "Venice"
+  },
+  {
+    "place_id": "ChIJ2e3Z9y27woARo5Bz1nL5jCM",
+    "name": "Manu Sweets - Online Orders Only",
+    "address": "2516 Virginia Ave, Santa Monica, CA 90404, USA",
+    "neighborhood": "Venice"
+  },
+  {
+    "place_id": "ChIJj3Stwji7woARxH_0Y30g8Ms",
+    "name": "City Kitchen Express One LLC",
+    "address": "1620 26th St # 1001N, Santa Monica, CA 90404, USA",
+    "neighborhood": "Venice"
+  },
+  {
+    "place_id": "ChIJhUnNUDi7woARc1KzZFbXh3c",
+    "name": "Trimana",
+    "address": "2450 Colorado Ave # 1030W, Santa Monica, CA 90404, USA",
+    "neighborhood": "Venice"
+  },
+  {
+    "place_id": "ChIJB8AHsl67woARcuk6y0FdNh8",
+    "name": "Dripp’d Coffee Company",
+    "address": "123 POPup, Santa Monica, CA 90404, USA",
+    "neighborhood": "Venice"
+  },
+  {
+    "place_id": "ChIJMc926BC7woARYbHWRYB6s1c",
+    "name": "UnUrban Coffee House",
+    "address": "3301 Pico Blvd, Santa Monica, CA 90405, USA",
+    "neighborhood": "Venice"
+  },
+  {
+    "place_id": "ChIJR_vZ6hC7woARwCc7-WfYaCM",
+    "name": "Rejuice",
+    "address": "3238 Pico Blvd, Santa Monica, CA 90405, USA",
+    "neighborhood": "Venice"
+  },
+  {
+    "place_id": "ChIJedP8gSO7woARwkSfDT3iVm4",
+    "name": "Flying Dutchman European Pastry Shop",
+    "address": "3307 Pico Blvd, Santa Monica, CA 90405, USA",
+    "neighborhood": "Venice"
+  }
+]

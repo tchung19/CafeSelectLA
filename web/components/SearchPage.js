@@ -9,7 +9,7 @@ import { searchCafes, fetchNeighborhoods } from '@/lib/api';
 
 export default function SearchPage() {
   const [query, setQuery] = useState('');
-  const [neighborhood, setNeighborhood] = useState(null);
+  const [selectedNeighborhoods, setSelectedNeighborhoods] = useState([]);
   const [neighborhoods, setNeighborhoods] = useState([]);
 
   useEffect(() => {
@@ -21,15 +21,14 @@ export default function SearchPage() {
   const [debugInfo, setDebugInfo] = useState(null);
 
   async function handleSearch() {
-    const fullQuery = neighborhood ? `${query} in ${neighborhood.name ?? neighborhood}` : query;
-    if (!fullQuery.trim()) return;
+    if (!query.trim() && selectedNeighborhoods.length === 0) return;
 
     setLoading(true);
     setError(null);
     setDebugInfo(null);
 
     try {
-      const data = await searchCafes(fullQuery);
+      const data = await searchCafes(query, selectedNeighborhoods.map((n) => n.name));
       setResults(data.results);
       setDebugInfo(data.filters);
     } catch {
@@ -44,8 +43,11 @@ export default function SearchPage() {
   }
 
   function handleNeighborhoodSelect(n) {
-    // n is a {name, count} object; store whole object so pills can compare
-    setNeighborhood(n);
+    setSelectedNeighborhoods((prev) =>
+      prev.some((s) => s.name === n.name)
+        ? prev.filter((s) => s.name !== n.name)
+        : [...prev, n]
+    );
   }
 
   const hasResults = results !== null;
@@ -70,7 +72,7 @@ export default function SearchPage() {
         />
         <NeighborhoodPills
           neighborhoods={neighborhoods}
-          selected={neighborhood}
+          selected={selectedNeighborhoods}
           onSelect={handleNeighborhoodSelect}
         />
       </div>

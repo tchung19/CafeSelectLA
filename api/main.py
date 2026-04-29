@@ -35,6 +35,7 @@ app.add_middleware(
 
 class SearchRequest(BaseModel):
     query: str
+    neighborhoods: list[str] = []
 
 
 class SearchResponse(BaseModel):
@@ -74,6 +75,10 @@ def search(req: SearchRequest):
     filters = parse_query(req.query)
     search_mode = filters.pop("search_mode", "filter")
     limit = int(filters.get("limit", 6))
+
+    if req.neighborhoods:
+        filters.pop("neighborhood", None)
+        filters["neighborhoods"] = req.neighborhoods
 
     if search_mode == "embedding":
         results = run_embedding_search(req.query, limit=limit)

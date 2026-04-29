@@ -1,17 +1,17 @@
 'use client';
 
-export default function NeighborhoodPills({ neighborhoods, selected, onSelect }) {
+export default function NeighborhoodPills({ neighborhoods, selected = [], onSelect }) {
   if (!neighborhoods || neighborhoods.length === 0) return null;
 
   return (
     <div className="flex flex-col gap-2">
       <div className="flex flex-wrap gap-2">
         {neighborhoods.map((n) => {
-          const isSelected = selected?.name === n.name;
+          const isSelected = selected.some((s) => s.name === n.name);
           return (
             <button
               key={n.name}
-              onClick={() => onSelect(isSelected ? null : n)}
+              onClick={() => onSelect(n)}
               className={`rounded-full border px-3 py-1 text-sm transition-colors ${
                 isSelected
                   ? 'border-amber-700 bg-amber-700 text-white'
