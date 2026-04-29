@@ -62,6 +62,7 @@ def parse_query(query: str) -> dict:
         max_tokens=256,
         system=SYSTEM_PROMPT,
         messages=[{"role": "user", "content": query}],
+        # output_format=QueryType
     )
     raw = msg.content[0].text.strip()
     # Strip markdown code fences if present

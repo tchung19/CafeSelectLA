@@ -104,9 +104,9 @@ You are extracting structured data that will feed a consumer-facing cafe search 
 # Field-by-field extraction rules
 
 ## Work & Study (§5)
-- `has_outlets` (int 0–5): 0=zero signal. 1–2=vague/scarce. 3="there are outlets". 4="plenty". 5="every seat has an outlet".
+- `has_outlets` (int 0–5): 0=zero signal. 1-2=vague/scarce. 3="there are outlets". 4="plenty". 5="every seat has an outlet".
 - `outlet_mentions`: literal count of raw reviews mentioning outlets/plugs/charging (summaries don't count).
-- `wifi_quality` (int 0–5): 0=no wifi/not mentioned. 3="has wifi" no complaints. 1–2=reliability complaints. 4–5=explicitly fast/reliable.
+- `wifi_quality` (int 0–5): 0=no wifi/not mentioned. 3="has wifi" no complaints. 1-2=reliability complaints. 4–5=explicitly fast/reliable.
 - `study_friendly`: true only if overall picture supports 2+ hours laptop work.
 - `noise_level`: "varies" when reviews describe different conditions at different times.
 - `solo_friendly`: true if a solo person could comfortably sit, read, work, or people-watch.
