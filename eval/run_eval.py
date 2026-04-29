@@ -5,6 +5,7 @@ Usage:
     python eval/run_eval.py                    # run both labeling + search eval
     python eval/run_eval.py --labeling         # only labeling eval
     python eval/run_eval.py --search           # only search eval
+    python eval/run_eval.py --db-quality       # only DB quality eval
     python eval/run_eval.py --id 3             # single search case
     python eval/run_eval.py --category study   # search cases in one category
 """
@@ -13,6 +14,7 @@ from __future__ import annotations
 
 import argparse
 import sys
+from collections import Counter
 from pathlib import Path
 
 # Allow running from Workspace root
@@ -151,6 +153,55 @@ def run_search_eval(
     return passed, len(cases)
 
 
+# ── DB quality eval ───────────────────────────────────────────────────────────
+
+# Columns to skip — always unique or always expected to be the same
+_SKIP_COLS = {"place_id", "name", "address", "google_maps_url", "hero_photo_url", "website"}
+
+NULL_THRESHOLD = 0.90      # >90% null → too sparse
+DOMINANCE_THRESHOLD = 0.90 # >90% same value (excl. null) → low variance
+
+def run_db_quality_eval() -> None:
+    rows = _supabase.table("cafes").select("*").execute().data or []
+    if not rows:
+        print("  No rows found in DB.")
+        return
+
+    total = len(rows)
+    print(f"\n  {total} cafes in DB\n")
+
+    all_cols = [k for k in rows[0].keys() if k not in _SKIP_COLS]
+    issues: list[str] = []
+
+    for col in sorted(all_cols):
+        values = [r.get(col) for r in rows]
+        null_count = sum(1 for v in values if v is None)
+        null_pct = null_count / total
+
+        non_null = [v for v in values if v is not None]
+        if non_null:
+            # Stringify lists/dicts so they're hashable for Counter
+            hashable = [str(v) if isinstance(v, (list, dict)) else v for v in non_null]
+            most_common_val, most_common_count = Counter(hashable).most_common(1)[0]
+            dominance_pct = most_common_count / total
+        else:
+            most_common_val, dominance_pct = None, 0.0
+
+        if null_pct > NULL_THRESHOLD:
+            flag = f"❌ {col}: {null_pct:.0%} null  ← too sparse"
+            issues.append(flag)
+            print(flag)
+        elif dominance_pct > DOMINANCE_THRESHOLD:
+            flag = f"⚠️  {col}: {dominance_pct:.0%} = {most_common_val!r}  ← low variance"
+            issues.append(flag)
+            print(flag)
+        else:
+            null_str = f"  {null_pct:.0%} null" if null_pct > 0.10 else ""
+            print(f"  ✅ {col}{null_str}")
+
+    print(f"\n  Issues found: {len(issues)}")
+
+
 def _short(d: dict) -> str:
     """Compact repr of filter dict for display."""
     skip = {"limit"}
@@ -163,12 +214,15 @@ def main():
     parser = argparse.ArgumentParser(description="CafeSelect end-to-end eval")
     parser.add_argument("--labeling", action="store_true", help="Only run labeling eval")
     parser.add_argument("--search", action="store_true", help="Only run search eval")
+    parser.add_argument("--db-quality", action="store_true", help="Only run DB quality eval")
     parser.add_argument("--id", type=int, help="Run a single search test case by ID")
     parser.add_argument("--category", help="Run search cases in one category")
     args = parser.parse_args()
 
-    run_lab = not args.search or args.labeling
-    run_srch = not args.labeling or args.search or args.id or args.category
+    only_one = args.labeling or args.search or args.db_quality or args.id or args.category
+    run_lab  = args.labeling  or not only_one
+    run_srch = args.search    or args.id is not None or args.category or not only_one
+    run_db   = args.db_quality or not only_one
 
     lab_correct = lab_total = 0
     srch_passed = srch_total = 0
@@ -188,17 +242,23 @@ def main():
             category=args.category,
         )
 
+    if run_db and not args.id and not args.category:
+        print("\n" + "=" * 50)
+        print("  DB Quality Eval")
+        print("=" * 50)
+        run_db_quality_eval()
+
     print("\n" + "=" * 50)
     print("  Summary")
     print("=" * 50)
     if lab_total:
         pct = 100 * lab_correct // lab_total
-        print(f"Labeling:  {lab_correct}/{lab_total} attributes correct ({pct}%)")
+        print(f"Labeling:   {lab_correct}/{lab_total} attributes correct ({pct}%)")
     if srch_total:
         pct = 100 * srch_passed // srch_total
-        print(f"Search:    {srch_passed}/{srch_total} cases passed ({pct}%)")
-    if not lab_total and not srch_total:
-        print("No test cases found. Add entries to eval/test_data.py to get started.")
+        print(f"Search:     {srch_passed}/{srch_total} cases passed ({pct}%)")
+    if not lab_total and not srch_total and not args.db_quality and not only_one:
+        print("No ground truth found. Add entries to eval/test_data.py to get started.")
     print()
 
 
