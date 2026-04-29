@@ -15,6 +15,7 @@ from pydantic import BaseModel
 
 from api.query_parser import parse_query
 from api.search import run_search, run_embedding_search
+from api.telegram_bot import handle_update
 
 app = FastAPI(
     title="CafeSelect API",
@@ -103,3 +104,9 @@ def search(req: SearchRequest):
         count=len(results),
         results=results,
     )
+
+
+@app.post("/bot/telegram")
+async def telegram_webhook(update: dict):
+    handle_update(update)
+    return {"ok": True}
