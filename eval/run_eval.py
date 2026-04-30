@@ -22,7 +22,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from eval.test_data import LABELING_GROUND_TRUTH, SEARCH_GROUND_TRUTH
 from api.query_parser import parse_query
-from api.search import run_search, run_embedding_search, _supabase, RETURN_COLS
+from api.search import run_search, run_embedding_search, _supabase, RETURN_COLS, _DAY_COL, _parse_hours_range
 
 
 # ── Helpers ───────────────────────────────────────────────────────────────────
@@ -199,7 +199,109 @@ def run_db_quality_eval() -> None:
             null_str = f"  {null_pct:.0%} null" if null_pct > 0.10 else ""
             print(f"  ✅ {col}{null_str}")
 
-    print(f"\n  Issues found: {len(issues)}")
+    print(f"\n  Column issues found: {len(issues)}")
+
+    # ── Embedding coverage ────────────────────────────────────────────────────
+    print("\n[Embedding coverage]")
+    missing_embed = [r["name"] for r in rows if not r.get("embedding")]
+    if not missing_embed:
+        print(f"  ✅ All {total} cafes have embeddings")
+    elif len(missing_embed) / total > 0.05:
+        print(f"  ❌ {len(missing_embed)}/{total} missing embeddings ({len(missing_embed)/total:.0%})")
+        for name in missing_embed[:10]:
+            print(f"     • {name}")
+        if len(missing_embed) > 10:
+            print(f"     ... and {len(missing_embed) - 10} more")
+    else:
+        print(f"  ⚠️  {len(missing_embed)}/{total} missing embeddings:")
+        for name in missing_embed:
+            print(f"     • {name}")
+
+    # ── Hours parseability ────────────────────────────────────────────────────
+    print("\n[Hours parseability]")
+    fully_broken, partially_broken = [], []
+    for r in rows:
+        day_results = [_parse_hours_range(r.get(col)) for col in _DAY_COL]
+        non_null_days = [d for d, col in zip(day_results, _DAY_COL) if r.get(col)]
+        failed = [col for col, parsed in zip(_DAY_COL, day_results) if r.get(col) and parsed is None]
+        if failed:
+            if len(failed) == len(non_null_days):
+                fully_broken.append(r["name"])
+            else:
+                partially_broken.append((r["name"], failed))
+
+    ok = total - len(fully_broken) - len(partially_broken)
+    print(f"  ✅ {ok}/{total} cafes have fully parseable hours")
+    if partially_broken:
+        print(f"  ⚠️  {len(partially_broken)} cafes have ≥1 unparseable day:")
+        for name, days in partially_broken[:5]:
+            print(f"     • {name} — {', '.join(d.replace('hours_','') for d in days)}")
+        if len(partially_broken) > 5:
+            print(f"     ... and {len(partially_broken) - 5} more")
+    if fully_broken:
+        print(f"  ❌ {len(fully_broken)} cafes have ALL days unparseable:")
+        for name in fully_broken:
+            print(f"     • {name}")
+
+    # ── Cross-field consistency ───────────────────────────────────────────────
+    print("\n[Cross-field consistency]")
+    contradictions = []
+    for r in rows:
+        name = r["name"]
+        if r.get("study_friendly") is True and r.get("noise_level") == "loud":
+            contradictions.append(f"{name} — study_friendly=True but noise_level=loud")
+        if r.get("open_after_5pm") is True and all(not r.get(col) for col in _DAY_COL):
+            contradictions.append(f"{name} — open_after_5pm=True but all hours null")
+
+    if not contradictions:
+        print(f"  ✅ No contradictions found")
+    else:
+        print(f"  ❌ {len(contradictions)} contradiction(s):")
+        for c in contradictions:
+            print(f"     • {c}")
+
+    # ── Hero photo coverage ───────────────────────────────────────────────────
+    print("\n[Hero photo coverage]")
+    missing_photo = [r["name"] for r in rows if not r.get("hero_photo_url")]
+    photo_pct = len(missing_photo) / total
+    if photo_pct > 0.20:
+        print(f"  ⚠️  {len(missing_photo)}/{total} cafes missing hero photo ({photo_pct:.0%})")
+    else:
+        print(f"  ✅ {total - len(missing_photo)}/{total} cafes have hero photo  ({len(missing_photo)} missing, {photo_pct:.0%})")
+    for name in missing_photo[:5]:
+        print(f"     • {name}")
+    if len(missing_photo) > 5:
+        print(f"     ... and {len(missing_photo) - 5} more")
+
+    # ── Hidden cafes (low review count) ──────────────────────────────────────
+    print("\n[Hidden cafes — review_count < 5]")
+    hidden = [(r["name"], r.get("review_count", 0)) for r in rows if (r.get("review_count") or 0) < 5]
+    if not hidden:
+        print(f"  ✅ All cafes meet the review_count >= 5 threshold")
+    else:
+        print(f"  ⚠️  {len(hidden)} cafe(s) hidden from search:")
+        for name, count in sorted(hidden, key=lambda x: x[1] or 0):
+            print(f"     • {name} ({count} review{'s' if count != 1 else ''})")
+
+    # ── Per-cafe completeness ─────────────────────────────────────────────────
+    print("\n[Per-cafe completeness — key attributes]")
+    KEY_ATTRS = [
+        "study_friendly", "noise_level", "has_outlets", "good_for_dates",
+        "has_matcha", "has_specialty_coffee", "has_patio", "has_vegan_options",
+        "generative_summary", "overall_vibe", "neighborhood",
+    ]
+    incomplete = []
+    for r in rows:
+        filled = sum(1 for k in KEY_ATTRS if r.get(k) is not None and r.get(k) is not False and r.get(k) != 0)
+        pct = filled / len(KEY_ATTRS)
+        if pct < 0.50:
+            incomplete.append((r["name"], filled, len(KEY_ATTRS)))
+    if not incomplete:
+        print(f"  ✅ All cafes have ≥50% of key attributes filled")
+    else:
+        print(f"  ⚠️  {len(incomplete)} cafe(s) below 50% completeness:")
+        for name, filled, total_attrs in sorted(incomplete, key=lambda x: x[1]):
+            print(f"     • {name} — {filled}/{total_attrs} fields ({filled/total_attrs:.0%})")
 
 
 def _short(d: dict) -> str:
