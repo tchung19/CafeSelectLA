@@ -292,7 +292,7 @@ def run_db_quality_eval() -> None:
     ]
     incomplete = []
     for r in rows:
-        filled = sum(1 for k in KEY_ATTRS if r.get(k) is not None and r.get(k) is not False and r.get(k) != 0)
+        filled = sum(1 for k in KEY_ATTRS if r.get(k) is not None)
         pct = filled / len(KEY_ATTRS)
         if pct < 0.50:
             incomplete.append((r["name"], filled, len(KEY_ATTRS)))
