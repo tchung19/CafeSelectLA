@@ -169,20 +169,25 @@ def run_search(filters: dict) -> list[dict]:
     return results
 
 
-def run_embedding_search(query: str, limit: int = 6) -> list[dict]:
+def run_embedding_search(
+    query: str,
+    limit: int = 6,
+    open_now: bool = False,
+    open_after: int | None = None,
+) -> list[dict]:
     """Embed the query and return cafes ranked by semantic similarity."""
     response = _openai.embeddings.create(model="text-embedding-3-small", input=query)
     vector = response.data[0].embedding
 
+    fetch_count = limit * 4 if (open_now or open_after) else limit * 3
     rpc_result = _supabase.rpc(
         "match_cafes",
-        {"query_embedding": vector, "match_count": limit * 3},
+        {"query_embedding": vector, "match_count": fetch_count},
     ).execute()
 
     if not rpc_result.data:
         return []
 
-    # Preserve similarity ranking after fetching full records
     id_order = {r["place_id"]: i for i, r in enumerate(rpc_result.data)}
     records = (
         _supabase.table("cafes")
@@ -192,6 +197,23 @@ def run_embedding_search(query: str, limit: int = 6) -> list[dict]:
         .execute()
         .data or []
     )
+
+    if open_now or open_after:
+        today_col = _today_hours_col()
+        now_hhmm = int(datetime.now().strftime("%H%M"))
+        filtered = []
+        for r in records:
+            hours = _parse_hours_range(r.get(today_col))
+            if hours is None:
+                continue
+            open_time, close_time = hours
+            if open_now and not (open_time <= now_hhmm <= close_time):
+                continue
+            if open_after and close_time < open_after:
+                continue
+            filtered.append(r)
+        records = filtered
+
     records = random.sample(records, min(limit, len(records)))
 
     for r in records:

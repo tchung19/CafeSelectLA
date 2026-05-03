@@ -161,15 +161,28 @@ def handle_update(update: dict) -> None:
     search_mode = filters.pop("search_mode", "filter")
     limit = int(filters.get("limit", 6))
 
+    # Default to open_now unless user specified a time filter
+    _TIME_FILTERS = {"open_after", "open_now", "open_weekends"}
+    if not any(k in filters for k in _TIME_FILTERS):
+        filters["open_now"] = True
+
     if search_mode == "embedding":
-        cafes = run_embedding_search(text, limit=limit)
+        cafes = run_embedding_search(
+            text, limit=limit,
+            open_now=filters.pop("open_now", False),
+            open_after=filters.pop("open_after", None),
+        )
         filters.pop("limit", None)
     elif search_mode == "hybrid":
         filter_results = run_search(dict(filters))
         if len(filter_results) >= limit:
             cafes = filter_results
         else:
-            embed_results = run_embedding_search(text, limit=limit)
+            embed_results = run_embedding_search(
+                text, limit=limit,
+                open_now=filters.get("open_now", False),
+                open_after=filters.get("open_after", None),
+            )
             seen = {r["place_id"] for r in filter_results}
             extras = [r for r in embed_results if r["place_id"] not in seen]
             cafes = (filter_results + extras)[:limit]
